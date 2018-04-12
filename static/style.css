@@ -1,0 +1,181 @@
+* {
+	box-sizing: border-box;
+	font-weight: bold;
+}
+
+body {
+	margin: 0;
+	background-color: #fffeb3;
+}
+
+a:active,a:hover,a:link,a:visited {
+	text-decoration: none;
+}
+
+li {
+	text-decoration: none;
+	font-size: 18px;
+
+}
+
+#add {
+	float: right;
+	margin-right: 15px;
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+#add-pic {
+	border: 1px orange solid;
+	width: 25px;
+	height: 25px;
+
+}
+
+.header {
+	width: 100%;
+	background-color: #dddc8d;
+	height: 75px;
+}
+
+#notifier {
+	background-color: silver;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+	border: 2px brown solid;
+
+}
+
+#notifier-box {
+	padding-left: 25px;
+	padding-top: 2px;
+	font-size: 20px;
+	width: 75%;
+	margin: auto;
+	height: 100%;
+}
+
+#header-box {
+	width: 75%;
+	background-color: #dddc8d;
+	margin: auto;
+	height: 100%;
+
+}
+
+#title {
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 25px;
+	font-size: 32px;
+	color: black;
+
+}
+
+#options {
+	margin-left: 15px;
+}
+
+#category-title {
+	display: inline-block;
+	font-size: 24px;
+	color: black; 
+}
+
+#section1 {
+	padding-left: 15px;
+	border: 1px black solid;
+	width: 75%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 500px;
+	background-color: white;
+}
+
+#description-details {
+	border: 1px black dotted;
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+#signinButton {
+	text-align: center;
+
+}
+
+#ok {
+	width: 70px;
+	height: 40px;
+	background-color: green;
+	color: white;
+}
+
+#error {
+	text-decoration: underline;
+	font-size: 32px;
+	width: 90%;
+	color: black;
+	margin: auto;
+	text-align: center;
+}
+
+#back {
+	border: 1px black solid;
+	padding: 3px;
+}
+
+#login_pic {
+	border-radius: 50%;
+	margin-right: 15px;
+	width: 40px;
+	height: 40px;
+}
+
+#loggedin-box {
+	background-color: #b8dd8d;
+	border: 1px black solid;
+	float: right;
+	vertical-align: middle;
+	margin-top: 3px;
+
+}
+
+#loggedin-text {
+}
+
+#description {
+	width: 97%;
+	color: black;
+	background-color: silver;
+	min-height: 180px;
+	border: 1px black solid;
+	margin: auto;
+	padding: 15px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#auth {
+	outline-style: none;
+	float: right;
+	color: blue;
+	background-color: white;
+	border-radius: 10px;
+	height: 50px;
+	width: 100px;
+	border-color: #4db0b0;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#logout {
+	outline-style: none;
+	color: blue;
+	background-color: white;
+	border-radius: 10px;
+	border-color: #4db0b0;
+}
