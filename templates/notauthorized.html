@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//apis.google.com/js/platform.js?onload=start"></script>
+		<link href="{{ url_for('static', filename= 'style.css') }}" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Not Authorized</title>
+	</head>
+	<body>
+		<header class="header">
+			<div id="header-box">
+				<a href="{{url_for('showOrigins')}}"><h1 id="title">Recipes Catalog</h1></a>
+
+				
+				
+
+
+			</div>
+		</header>
+		<main class="main">
+			<section id="section1">
+				<h2 id="category-title"></h2><br>
+
+        <p id="error">{{ message }}<br><a href ="{{url_for('showOrigins')}}"><button id="ok">OK!</button></a></p>
+
+				
+
+        
+
+
+
+			</section>
+		</main>
+
+		<div id="notifier">
+			<div id="notifier-box">
+				Notification Center :
+			</div>
+		</div>
+		
+
+
+	</body>
+</html>

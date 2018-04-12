@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="{{ url_for('static', filename= 'style.css') }}" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Recipes</title>
+	</head>
+	<body>
+		<header class="header">
+			<div id="header-box">
+				<a href="{{url_for('showOrigins')}}"><h1 id="title">Recipes Catalog</h1></a>
+
+				<a href="{{url_for('showLogin')}}"><button id="auth">Login</button></a>
+				
+
+
+			</div>
+		</header>
+		<main class="main">
+			<section id="section1">
+				<h2 id="category-title"><a href = "{{url_for('showOrigins')}}"><span id="back">< BACK</span></a> &nbsp;
+				{{ origin.name }} Recipes , Created by {{ creator.name }}</h2><br>
+				
+				{% if recipes != [] %}{{ "<ul>"|safe}}{% else %}{{ "<span id='empty'>Sorry no recipes are registered here.</span>"|safe }}{% endif %}
+					{% for i in recipes %}
+				
+				
+
+				<a href = "{{url_for('showDescription', recipe_id = i.id, origin_id= origin.id)}}">
+			
+				
+					<div >
+						<li>{{ i.name }}</li>
+					</div>
+					
+				
+			
+				</a>
+				{% endfor %}
+			{% if recipes != [] %}{{ "</ul>"|safe}}{% endif %}
+			
+
+			</section>
+		</main>
+
+		
+		
+
+
+	</body>
+</html>

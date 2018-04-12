@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="{{ url_for('static', filename= 'style.css') }}" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Add Recipe</title>
+	</head>
+	<body>
+		<header class="header">
+			<div id="header-box">
+				<a href="{{url_for('showOrigins')}}"><h1 id="title">Recipes Catalog</h1></a>
+
+				<div id="loggedin-box">
+					<img src="{{ login_session['picture'] }}" id="login_pic" ><div id="loggedin-text">{{ login_session['username'] }}<a href="{{url_for('gdisconnect')}}"> &nbsp;<button id="logout">Logout</button></a></div>
+				</div>
+				
+
+
+			</div>
+		</header>
+		<main class="main">
+			<section id="section1">
+				<h2 id="category-title">Add a Recipe</h2>
+				
+					<form action="{{url_for('newRecipe', origin_id=origin_id)}}" method = "post">
+
+						<label for="name">Name:</label>
+					<input type ="text" maxlength="50" name="name"><br><br>
+
+					<label for="description">Description:</label><br><br>
+					<textarea maxlength="250" rows="6" cols="50" name="description" placeholder="Description of the recipe"></textarea>
+					<br><br>
+
+					<label for="course">Course:</label>
+					
+					  <label>
+					    <input type="radio" name="course" id="course1" value="Appetizer">Appetizer
+					  </label>
+					
+					
+					  <label>
+					    <input type="radio" name="course" id="course2" value="Entree">Entree
+					  </label>
+					
+					
+					  <label>
+					    <input type="radio" name="course" id="course3" value="Dessert">Dessert
+					  </label>
+					
+					  <label>
+					    <input type="radio" name="course" id="course4" value="Beverage">Beverage
+					  </label>
+					<br><br>
+					<button type="submit" id="submit" type="submit"><span></span>Create</button>
+						
+
+
+					</form><br>
+					<a href ="{{url_for('showOrigins')}}"><button><span></span> Cancel</button></a>
+					
+			</section>
+		</main>
+
+		<div id="notifier">
+			<div id="notifier-box">Notification Center : 
+				{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+
+
+				<span style="margin-left: 15px;">{{ message }}</span>
+        
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+			</div>
+		</div>
+		
+
+
+	</body>
+</html>

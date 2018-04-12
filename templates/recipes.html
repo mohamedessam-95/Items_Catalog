@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="{{ url_for('static', filename= 'style.css') }}" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Recipes</title>
+	</head>
+	<body>
+		<header class="header">
+			<div id="header-box">
+				<a href="{{url_for('showOrigins')}}"><h1 id="title">Recipes Catalog</h1></a>
+
+				<div id="loggedin-box">
+					<img src="{{ login_session['picture'] }}" id="login_pic" ><div id="loggedin-text">{{ login_session['username'] }}<a href="{{url_for('gdisconnect')}}"> &nbsp;<button id="logout">Logout</button></a></div>
+				</div>
+				
+
+
+			</div>
+		</header>
+		<main class="main">
+			<section id="section1">
+				<h2 id="category-title"><a href = "{{url_for('showOrigins')}}"><span id="back">< BACK</span></a> &nbsp;
+				{{ origin.name }} Recipes , Created by {% if creator.id == login_session['user_id'] %}{{ "you" }}{% else %}{{ creator.name }}{% endif %}</h2>
+				<a href="{{url_for('newRecipe', origin_id= origin.id)}}">
+				<div id="add"><img id="add-pic" src="{{url_for('static', filename= 'Plus.png')}}"> Add Recipe</div></a><br>
+				
+				{% if recipes != [] %}{{ "<ul>"|safe}}{% else %}{{ "<span id='empty'>Sorry no recipes are registered here.</span>"|safe }}{% endif %}
+					{% for i in recipes %}
+
+				<a href = "{{url_for('showDescription', recipe_id = i.id, origin_id= origin.id)}}">
+			
+				{% if i.user_id != login_session['user_id'] %}
+					<div >
+						<li>{{ i.name }}</li>
+					</div>
+					{% else %}
+					<div >
+						<li>{{ i.name }}
+							<span id="options">
+						<a href="{{url_for('editRecipe',recipe_id= i.id, origin_id= origin.id)}}"><button>Edit</button></a>
+						<a href="{{url_for('deleteRecipe',recipe_id= i.id ,origin_id= origin.id)}}"><button>Delete</button></a>
+
+					</span>
+						 </li>
+					</div>
+					{% endif %}
+				
+			
+				</a>
+				{% endfor %}
+			{% if recipes != [] %}{{ "</ul>"|safe}}{% endif %}
+
+				
+
+				
+
+			</section>
+		</main>
+
+		<div id="notifier">
+			<div id="notifier-box">Notification Center : 
+				{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+
+
+				<span style="margin-left: 15px;">{{ message }}</span>
+        
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+			</div>
+		</div>
+		
+
+
+	</body>
+</html>
